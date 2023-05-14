@@ -1,55 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="detail.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../dashboard/dashboard.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:300,regular,500,600,700,800"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="detail.css">
     <title>Detail Page</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="Header">
-        <h2>Where in the world?</h2>
-        <span>
-          <img
-            src="https://img.icons8.com/external-ios-line-2px-amoghdesign/30/null/external-dark-multimedia-line-30px-ios-line-2px-amoghdesign.png"
-            onclick="toggleDarkMode()" class="icon"/>
-          Dark Mode
+      <div class="header-content">
+      <h2 class="title">Where in the world?</h2>
+      <p class="theme-changer">
+        <i class="fa-regular fa-moon"></i>&nbsp;&nbsp;Dark Mode
+      </p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="goto-button" >
+        <span class="back-button" onclick="history.go(-1);">
+          <i class="fa fa-arrow-left-long"></i>&nbsp; Back
         </span>
       </div>
-
-      <div class="container">
-          <div>
-           <a href="home_page.html">
-            <button class="back_btn">
-                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAUElEQVR4nO3PsQmAQBAEwLEgQTASc8FA7MsubMkm/C4UwUyTv09/4MJd9qj+jNgFdUiYI+EWJ5ZIuMGBK/M+C575kwLD+0ZfUrJiKymo5LkBPeQT7Z//BF4AAAAASUVORK5CYII=">
-                Back</button>
-             </a>   
-          </div>
-          <div id="flag_details">
-            <img src="https://pixlok.com/wp-content/uploads/2021/03/Pakistan-Flag-Background-Design.jpg">
-            <div>
-            <h3><b>Flag Name:</b></h3>
-            <p><b>Native Name:</b></p>
-            <p><b>Population:</b></p>
-            <p><b>Region:</b></p>
-            <p><b>Sub Region:</b></p>
-            <p><b>Capital:</b></p>
-          </div>
-            <div>
-                <p><b>Top Level:</b></p>
-                <p><b>Currencies:</b></p>
-                <p><b>Languages:</b></p>
+      <div class="country-details-container">
+        <div class="country-details">
+          <img src="" alt="">
+          <div class="details-text-container">
+            <h1></h1>
+            <div class="details-text">
+              <div class="part-1">
+                <p><b>Native Name: </b><span class="native-name"></span></p>
+                <p><b>Population: </b><span class="population"></span></p>
+                <p><b>Region: </b><span class="region"></span></p>
+                <p><b>Sub Region: </b><span class="sub-region"></span></p>
+                <p><b>Capital: </b><span class="capital"></span></p>
+              </div>
+              <div class="part-2">
+                <p>
+                  <b>Top Level Domain: </b
+                  ><span class="top-level-domain"></span>
+                </p>
+                <p><b>Currencies: </b><span class="currencies"></span></p>
+                <p><b>Languages: </b><span class="languages"></span></p>
+              </div>
             </div>
-                <div>
-                    <p><b>Border Countries:</b></p>
-                    <button>Afganistan</button>
-                </div>
+            <div class="border-countries"><b>Border Countries: </b>&nbsp;</div>
           </div>
+        </div>
       </div>
-      
-      <script src="detail_page.js"></script>
-      
-</body>
+    </div>
+
+    <script src="detail_page.js" defer></script>
+  </body>
 </html>

@@ -4,41 +4,44 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:300,regular,500,600,700,800"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" type="text/css" href="home.css" />
     <title>Home Page</title>
   </head>
   <body>
     <div class="main-container">
       <div class="Header">
-        <h2>Where in the world?</h2>
-        <span>
-          <img
-            src="https://img.icons8.com/external-ios-line-2px-amoghdesign/30/null/external-dark-multimedia-line-30px-ios-line-2px-amoghdesign.png"
-            class="icon"
-            onclick="toggleDarkMode()"
-          />
-          Dark Mode
-        </span>
+        <div class="header-content">
+        <h2 class="title">Where in the world?</h2>
+        <p class="theme-changer">
+          <i class="fa-regular fa-moon"></i>&nbsp;&nbsp;Dark Mode
+        </p>
+        </div>
       </div>
       <div class="container">
-        <div class="Search">
+        <div class="search-filter-container">
           <div class="Search_bar">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              x="0px"
-              y="0px"
-              width="20"
-              height="20"
-              viewBox="0 0 50 50"
-            >
-              <path
-                d="M 21 3 C 11.621094 3 4 10.621094 4 20 C 4 29.378906 11.621094 37 21 37 C 24.710938 37 28.140625 35.804688 30.9375 33.78125 L 44.09375 46.90625 L 46.90625 44.09375 L 33.90625 31.0625 C 36.460938 28.085938 38 24.222656 38 20 C 38 10.621094 30.378906 3 21 3 Z M 21 5 C 29.296875 5 36 11.703125 36 20 C 36 28.296875 29.296875 35 21 35 C 12.703125 35 6 28.296875 6 20 C 6 11.703125 12.703125 5 21 5 Z"
-              ></path>
-            </svg>
+            <i class="fa-solid fa-magnifying-glass" id="magnify"></i>
             <input class="search__input" type="search" placeholder="Search" />
           </div>
           <div class="filter">
-            <select id="region-select">
+            <select class="filter-by-region">
               <option value="filter by Region" hidden>Filter By Region</option>
               <option value="Africa">Africa</option>
               <option value="America">America</option>
@@ -50,7 +53,7 @@
         </div>
 
         <div id="card-container"></div>
-        <script src="home_page.js"></script>
+        <script type="module" src="home_page.js"></script>
       </div>
     </div>
   </body>
