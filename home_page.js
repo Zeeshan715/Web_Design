@@ -1,4 +1,3 @@
-const cardContainer = document.querySelector("#card-container");
 let allCountries = []; // Global Variable for storing Data
 let selectedCountry = null;
 
@@ -14,6 +13,7 @@ const fetchApiData = async (url) => {
 };
 
 const renderCards = (data) => {
+  const cardContainer = document.querySelector("#card-container");
   cardContainer.innerHTML = "";
   data.forEach((country) => {
     const countryCard = document.createElement("a");
@@ -61,11 +61,10 @@ const themeChanger = document.querySelector(".theme-changer");
 
 const toggleTheme = () => {
   document.body.classList.toggle("dark");
-  const isDarkMode = document.body.classList.contains("dark");
-  localStorage.setItem("theme", isDarkMode ? "dark" : "light");
-  themeChanger.innerHTML = `<i class="fa-regular fa-moon"></i>&nbsp;&nbsp;${
-    isDarkMode ? "Light" : "Dark"
-  } Mode`;
+  const isDarkMode = document.body.classList.contains("dark")
+  ? '<i class="fa-solid fa-moon"></i>&nbsp;&nbsp;Light Mode'
+    : '<i class="fa-regular fa-moon"></i>&nbsp;&nbsp;Dark Mode';
+    themeChanger.innerHTML = isDarkMode;
 };
 
 const themeChangerInit = () => {

@@ -1,14 +1,4 @@
 const countryName = new URLSearchParams(location.search).get("name");
-const flagImage = document.querySelector(".country-details img");
-const countryNameH1 = document.querySelector(".country-details h1");
-const nativeName = document.querySelector(".native-name");
-const population = document.querySelector(".population");
-const region = document.querySelector(".region");
-const subRegion = document.querySelector(".sub-region");
-const capital = document.querySelector(".capital");
-const topLevelDomain = document.querySelector(".top-level-domain");
-const currencies = document.querySelector(".currencies");
-const languages = document.querySelector(".languages");
 const borderCountries = document.querySelector(".border-countries");
 const themeChanger = document.querySelector(".theme-changer");
 const body = document.body;
@@ -24,34 +14,42 @@ const showCardDetail = () => {
   fetch(`${API}/name/${countryName}?fullText=true`)
     .then((res) => res.json())
     .then(([country]) => {
+      const flagImage = document.querySelector(".country-details img");
       flagImage.src = country.flags.png;
-      flagImage.style.width = "300";
-      flagImage.style.height = "150";
+      const countryNameH1 = document.querySelector(".country-details h1");
       countryNameH1.innerText = country.name.common;
+      const population = document.querySelector(".population");
       population.innerText = country.population.toLocaleString("en-IN");
+      const region = document.querySelector(".region");
       region.innerText = country.region;
+      const topLevelDomain = document.querySelector(".top-level-domain");
       topLevelDomain.innerText = country.tld.join(", ");
       if (country.capital) {
+        const capital = document.querySelector(".capital");
         capital.innerText = country.capital?.[0];
       }
 
       if (country.subregion) {
+        const subRegion = document.querySelector(".sub-region");
         subRegion.innerText = country.subregion;
       }
 
       if (country.name.nativeName) {
+        const nativeName = document.querySelector(".native-name");
         nativeName.innerText = Object.values(country.name.nativeName)[0].common;
       } else {
         nativeName.innerText = country.name.common;
       }
 
       if (country.currencies) {
+        const currencies = document.querySelector(".currencies");
         currencies.innerText = Object.values(country.currencies)
           .map((currency) => currency.name)
           .join(", ");
       }
 
       if (country.languages) {
+        const languages = document.querySelector(".languages");
         languages.innerText = Object.values(country.languages)
           .sort()
           .join(", ");
@@ -94,19 +92,19 @@ const themeGetter = () => {
 };
 
 const toggleTheme = () => {
-  // Toggle the body class
+
   body.classList.toggle("dark");
-  // Update the theme preference in local storage
+ 
   const currentTheme = body.classList.contains("dark") ? "dark" : "light";
   localStorage.setItem("theme", currentTheme);
-  // Update the button text from dark to light OR Vice Versa
+ 
   const buttonHtml = body.classList.contains("dark")
     ? '<i class="fa-solid fa-moon"></i>&nbsp;&nbsp;Light Mode'
     : '<i class="fa-regular fa-moon"></i>&nbsp;&nbsp;Dark Mode';
   themeChanger.innerHTML = buttonHtml;
 };
 
-/*Functions are being called here*/
+
 themeGetter();
 themeChanger.addEventListener("click", toggleTheme);
 showCardDetail();
