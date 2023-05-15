@@ -62,9 +62,9 @@ const themeChanger = document.querySelector(".theme-changer");
 const toggleTheme = () => {
   document.body.classList.toggle("dark");
   const isDarkMode = document.body.classList.contains("dark")
-  ? '<i class="fa-solid fa-moon"></i>&nbsp;&nbsp;Light Mode'
+    ? '<i class="fa-solid fa-moon"></i>&nbsp;&nbsp;Light Mode'
     : '<i class="fa-regular fa-moon"></i>&nbsp;&nbsp;Dark Mode';
-    themeChanger.innerHTML = isDarkMode;
+  themeChanger.innerHTML = isDarkMode;
 };
 
 const themeChangerInit = () => {
@@ -79,7 +79,7 @@ const themeChangerInit = () => {
 const init = async () => {
   await fetchAllCountries();
   document.querySelector(".Search_bar input").addEventListener("input", (e) => {
-    searchCountries(e.target.value);  
+    searchCountries(e.target.value);
   });
   document
     .querySelector(".filter-by-region")
@@ -87,7 +87,7 @@ const init = async () => {
       console.log(e.target.value);
       filterCountriesByRegion(e.target.value);
     });
-  window.addEventListener("pageshow", resetSearchInputValue);
+  window.addEventListener("pageshow", resetSearchInputValue());
   themeChangerInit();
 };
 

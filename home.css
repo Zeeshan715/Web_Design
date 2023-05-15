@@ -61,16 +61,17 @@ a {
 }
 
 #card-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 3rem;
   margin-top: 60px;
   margin-left: 40px;
   margin-right: 30px;
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
 }
 
 .container-card {
   margin: 10px 20px 10px 20px;
+  display: flex;
 }
 
 .card {
@@ -175,6 +176,8 @@ a {
   margin: 0px;
 }
 
+
+
 @media only screen and (max-width: 768px) {
   .title {
     font-size: 12px;
@@ -194,10 +197,11 @@ a {
   .Search_bar {
     width: 335px;
     margin-bottom: 24px;
-    margin-left: 25px;
+    margin-left: 10px;
+    margin-right: 30px;
   }
   .filter {
-    margin-left: 25px;
+    margin-left: 10px;
   }
   .filter-by-region {
     width: auto;
