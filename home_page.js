@@ -54,7 +54,7 @@ const searchCountries = (searchString) => {
 };
 
 const resetSearchInputValue = () => {
-  document.getElementById("search-input").value = "";
+  document.querySelector(".Search_bar input").value = "";
 };
 
 const themeChanger = document.querySelector(".theme-changer");
@@ -79,7 +79,7 @@ const themeChangerInit = () => {
 const init = async () => {
   await fetchAllCountries();
   document.querySelector(".Search_bar input").addEventListener("input", (e) => {
-    searchCountries(e.target.value);
+    searchCountries(e.target.value);  
   });
   document
     .querySelector(".filter-by-region")

@@ -26,7 +26,7 @@ body.dark {
   --text-color: hsl(0, 0%, 98%);
   --elements-color: hsl(209, 23%, 22%);
   --shadowColor: #0e0e0e;
-  --bgColor: hsl(209, 23%, 22%)
+  --bgColor: hsl(209, 23%, 22%);
   --mgColor:hsl(0, 0%, 98%);
    transition: 0.15s;
 }
@@ -51,9 +51,9 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1200px;
   margin-inline: auto;
-  padding:0 2rem;
+  padding-left: 20px;
+  padding-right: 30px;
 }
 
 .title {
@@ -67,26 +67,23 @@ a {
 }
 
 #card-container {
-  max-width: 1200px;
-  margin-top: 16px;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 3rem;
-  flex-wrap: wrap;
-  margin: auto;
-  justify-content: center;
-  
+  margin-top: 60px;
+  margin-left: 40px;
+  margin-right: 30px;
 }
-
 
 .card {
 
-  width: 250px;
+  width: 315px;
   border-radius: 8px;
   overflow: hidden;
   padding-bottom: 24px;
   box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.2);
   background-color: var(--elements-color);
-  height:350px;
+  height:450px;
 }
 
 .card:hover {
@@ -114,15 +111,15 @@ a {
 
 .card img {
  width: 100%;
- height: 170px;
+ height: 200px;
  box-shadow: 0 0 1px;
 }
 
 .search-filter-container {
-  max-width: 1200px;
   margin-inline: auto;
   margin-top: 130px;
-  margin-bottom: 48px;
+  margin-left: 10px;
+  margin-right: 15px;
   display: flex;
   justify-content: space-between;
   padding:0 2rem;
@@ -143,7 +140,7 @@ a {
   border: none;
   outline: none;
   width: 90%;
-  height:48px;
+  height:50px;
   color:var(--text-color);
   background-color: var(--elements-color);
   
@@ -154,6 +151,7 @@ a {
 .filter-by-region{
 
     width: 100%;
+    height: 50px;
     border-radius: 0.25em;
     border: none;
     padding: 15px;
