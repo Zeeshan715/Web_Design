@@ -81,11 +81,6 @@ body.dark {
   max-height: 180px;
   flex-wrap: wrap;
 }
-.title {
-  font-weight: 700;
-  font-size: 27px;
- 
-}
 
 .details-text p {
   margin: 0;
