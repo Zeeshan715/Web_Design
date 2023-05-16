@@ -1,111 +1,94 @@
 let allCountries = []; // Global Variable for storing Data
-var selectedCountry = null;
+let selectedCountry = null;
 
 // Fetch the API
-const getFlagData = async () => {
+const fetchApiData = async (url) => {
   try {
-    const res = await fetch("https://restcountries.com/v3.1/all");
-    const data = await res.json();
-    allCountries = data;
-    const cardContainer = document.getElementById("card-container");
-    data.forEach((item) => {
-      const a = document.createElement("a");
-      a.href = "detail_page.html";
-
-      a.onclick = () => {
-        selectedCountry = item;
-        console.log(selectedCountry);
-      };
-
-      const card = document.createElement("div");
-      card.classList.add("card");
-      card.insertAdjacentHTML(
-        "afterbegin",
-        ` <img src="${item.flags.png}" alt="${item.name.common} flag">
-        <div class=cardBody>
-          <h2>${item.name.common}</h2>
-          <p><b>Population:</b> ${item.population}</p>
-          <p><b>Region:</b> ${item.region}</p>
-          <p><b>Capital:</b> ${item.capital}</p>
-        </div>
-      `
-      );
-      a.appendChild(card);
-      cardContainer.appendChild(a);
-    });
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
   } catch (error) {
     console.log(error);
   }
 };
 
-// Apply the Serch Bar Functionality
+const renderCards = (data) => {
+  const cardContainer = document.querySelector("#card-container");
+  cardContainer.innerHTML = "";
+  data.forEach((country) => {
+    const countryCard = document.createElement("a");
+    countryCard.classList.add("card");
+    countryCard.href = `./detail_page.html?name=${country.name.common}`;
+    countryCard.innerHTML = `
+    <img src="${country.flags.png}" alt="${country.name.common} flag">
+      <div class="cardBody">
+        <h3 class="card-title">${country.name.common}</h3>
+        <p><b>Population: </b>${country.population.toLocaleString("en-IN")}</p>
+        <p><b>Region: </b>${country.region}</p>
+        <p><b>Capital: </b>${country.capital?.[0]}</p>
+      </div>
+    `;
+    cardContainer.append(countryCard);
+  });
+};
+
+const fetchAllCountries = async () => {
+  const data = await fetchApiData("https://restcountries.com/v3.1/all");
+  allCountries = data;
+  renderCards(data);
+};
+
+const filterCountriesByRegion = async (region) => {
+  const data = await fetchApiData(
+    `https://restcountries.com/v3.1/region/${region}`
+  );
+  renderCards(data);
+};
+
 const searchCountries = (searchString) => {
   const filteredCountries = allCountries.filter((item) => {
     const name = item.name.common.toLowerCase();
     return name.includes(searchString.toLowerCase());
   });
-  const cardContainer = document.getElementById("card-container");
-  cardContainer.innerHTML = "";
-  filteredCountries.map((item) => {
-    const card = document.createElement("div");
-    card.classList.add("card");
-    card.insertAdjacentHTML(
-      "afterbegin",
-      `
-        <img src="${item.flags.png}" alt="${item.name.common} flag">
-        <div class=cardBody>
-          <h2>${item.name.common}</h2>
-          <p><b>Population:</b> ${item.population}</p>
-          <p><b>Region:</b> ${item.region}</p>
-          <p><b>Capital:</b> ${item.capital}</p>
-        </div>
-      `
-    );
-    cardContainer.appendChild(card);
-  });
+  renderCards(filteredCountries);
 };
 
-const searchInput = document.querySelector(".Search_bar");
-searchInput.addEventListener("input", (e) => {
-  const searchString = e.target.value;
-  searchCountries(searchString);
-});
-
-// Apply the Filter Functionality
-const searchByregion = (region) => {
-  const filteredbyregion = allCountries.filter((item) => {
-    const regions = item.region.toLowerCase();
-    return regions.includes(region.toLowerCase());
-  });
-  const cardContainer = document.getElementById("card-container");
-  cardContainer.innerHTML = "";
-  filteredbyregion.map((item) => {
-    const card = document.createElement("div");
-    card.classList.add("card");
-    card.insertAdjacentHTML(
-      "afterbegin",
-      `
-        <img src="${item.flags.png}" alt="${item.name.common} flag">
-        <div class=cardBody>
-          <h2>${item.name.common}</h2>
-          <p><b>Population:</b> ${item.population}</p>
-          <p><b>Region:</b> ${item.region}</p>
-          <p><b>Capital:</b> ${item.capital}</p>
-        </div>
-      `
-    );
-    cardContainer.appendChild(card);
-  });
+const resetSearchInputValue = () => {
+  document.querySelector(".Search_bar input").value = "";
 };
 
-const searchRegion = document.querySelector(".filter");
-searchRegion.addEventListener("input", (e) => {
-  const region = e.target.value;
-  searchByregion(region);
-});
+const themeChanger = document.querySelector(".theme-changer");
 
-const toggleDarkMode = () => {
-  document.body.classList.toggle("dark-mode");
+const toggleTheme = () => {
+  document.body.classList.toggle("dark");
+  const isDarkMode = document.body.classList.contains("dark")
+    ? '<i class="fa-solid fa-moon"></i>&nbsp;&nbsp;Light Mode'
+    : '<i class="fa-regular fa-moon"></i>&nbsp;&nbsp;Dark Mode';
+  themeChanger.innerHTML = isDarkMode;
 };
 
-getFlagData();
+const themeChangerInit = () => {
+  const savedTheme = localStorage.getItem("theme") || "light";
+  document.body.classList.add(savedTheme);
+  themeChanger.innerHTML = `<i class="fa-regular fa-moon"></i>&nbsp;&nbsp;${
+    savedTheme === "dark" ? "Light" : "Dark"
+  } Mode`;
+  themeChanger.addEventListener("click", toggleTheme);
+};
+
+const init = async () => {
+  await fetchAllCountries();
+  document.querySelector(".Search_bar input").addEventListener("input", (e) => {
+    searchCountries(e.target.value);
+  });
+  document
+    .querySelector(".filter-by-region")
+    .addEventListener("change", (e) => {
+      console.log(e.target.value);
+      filterCountriesByRegion(e.target.value);
+    });
+  window.addEventListener("pageshow", resetSearchInputValue());
+  themeChangerInit();
+};
+
+init();
