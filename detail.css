@@ -1,0 +1,66 @@
+:root{
+  --bg:hsl(0, 0%, 100%);
+  --text:hsl(200, 15%, 8%);
+  --bghead:hsl(0, 0%, 100%);
+
+}
+.dark-mode {
+  --bg: hsl(207, 26%, 17%);
+  --bghead:hsl(209, 23%, 22%);
+  --text: hsl(0, 0%, 100%);
+}
+
+body{
+  background-color: var(--bg);
+}
+.Header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color:var(--bghead);
+    color: var(--text);
+    border: none;
+    font-size: 16px;
+    font-family:Nunito Sans;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2)
+  }
+  .icon{
+    width: 30px;
+    cursor: pointer;
+  }
+  .container{
+    margin: 50px;
+  }
+
+  .back_btn {
+    background-color:var(--bghead);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-family:Nunito Sans;
+    color: var(--text);
+    padding: 10px 20px;
+    text-align: center;
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2)
+  }
+  
+  .back_btn:hover {
+    background-color: var(--bghead);
+  }
+  
+  #flag_details{
+    display: flex;
+    gap: 5rem;
+    padding: 20px;
+
+  }
+
+  @media screen and (max-width: 375px) {
+    #flag_details{
+      display: block;
+    }
+    }
