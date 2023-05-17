@@ -61,10 +61,11 @@ const themeChanger = document.querySelector(".theme-changer");
 
 const toggleTheme = () => {
   document.body.classList.toggle("dark");
-  const isDarkMode = document.body.classList.contains("dark")
-    ? '<i class="fa-solid fa-moon"></i>&nbsp;&nbsp;Light Mode'
-    : '<i class="fa-regular fa-moon"></i>&nbsp;&nbsp;Dark Mode';
-  themeChanger.innerHTML = isDarkMode;
+  const isDarkMode = document.body.classList.contains("dark");
+  localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+  themeChanger.innerHTML = `<i class="fa-regular fa-moon"></i>&nbsp;&nbsp;${
+    isDarkMode ? "Light" : "Dark"
+  } Mode`;
 };
 
 const themeChangerInit = () => {
