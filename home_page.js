@@ -63,7 +63,7 @@ const toggleTheme = () => {
   document.body.classList.toggle("dark");
   const isDarkMode = document.body.classList.contains("dark");
   localStorage.setItem("theme", isDarkMode ? "dark" : "light");
-  themeChanger.innerHTML = `<i class="fa-regular fa-moon"></i>&nbsp;&nbsp;${
+  themeChanger.innerHTML = `<i class="fa-regular fa-moon"></i>${
     isDarkMode ? "Light" : "Dark"
   } Mode`;
 };
@@ -71,7 +71,7 @@ const toggleTheme = () => {
 const themeChangerInit = () => {
   const savedTheme = localStorage.getItem("theme") || "light";
   document.body.classList.add(savedTheme);
-  themeChanger.innerHTML = `<i class="fa-regular fa-moon"></i>&nbsp;&nbsp;${
+  themeChanger.innerHTML = `<i class="fa-regular fa-moon"></i>${
     savedTheme === "dark" ? "Light" : "Dark"
   } Mode`;
   themeChanger.addEventListener("click", toggleTheme);
