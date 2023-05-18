@@ -87,7 +87,7 @@ const themeGetter = () => {
   if (savedTheme === "dark") {
     body.classList.add("dark");
     themeChanger.innerHTML =
-      '<i class="fa-solid fa-moon"></i>&nbsp;&nbsp;Light Mode';
+      '<i class="fa-solid fa-moon"></i>Light Mode';
   }
 };
 
@@ -99,8 +99,8 @@ const toggleTheme = () => {
   localStorage.setItem("theme", currentTheme);
  
   const buttonHtml = body.classList.contains("dark")
-    ? '<i class="fa-solid fa-moon"></i>&nbsp;&nbsp;Light Mode'
-    : '<i class="fa-regular fa-moon"></i>&nbsp;&nbsp;Dark Mode';
+    ? '<i class="fa-solid fa-moon"></i>Light Mode'
+    : '<i class="fa-regular fa-moon"></i>Dark Mode';
   themeChanger.innerHTML = buttonHtml;
 };
 
