@@ -151,10 +151,21 @@ body.dark {
 .right-side p {
   margin-top: 10px;
 }
-@media (max-width: 1320px) {
-  .country-details img {
-    margin-left: 0;
-  }
+
+
+.loader {
+  border: 4px solid #f3f3f3; /* Light gray border */
+  border-top: 4px solid #3498db; /* Blue border for the loading animation */
+  border-radius: 50%; /* Create a circular shape */
+  width: 30px; /* Set the width and height of the loader */
+  height: 30px;
+  animation: spin 1s linear infinite; /* Apply the animation */
+  margin: 0 auto; /* Center the loader horizontally */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); } /* Start the animation at 0 degrees */
+  100% { transform: rotate(360deg); } /* End the animation at 360 degrees (a full circle) */
 }
 
 @media (max-width: 1200px) {
@@ -166,6 +177,21 @@ body.dark {
     column-gap: 0px;
   }
 }
+
+@media (max-width: 1160px) {
+  .country-details {
+    gap: 50px;
+    margin-left: 66px;
+  }
+  .details-text {
+    column-gap: 0px;
+  }
+    
+  .Border-area {
+    width: 400px;
+  }
+}
+
 @media (max-width: 960px) {
   .country-details img {
     width: 430px;
@@ -180,10 +206,21 @@ body.dark {
 }
 
 @media (max-width: 950px) {
+
+  .country-details {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 50px;
+    margin-left: 50px;
+    gap: 16px;
+   }
+   .Border-area{
+    width: 500px;
+   }
   .country-details img {
-    width: 390px;
-    height: 356px;
-  }
+    width: 550px;
+    height: 400px;
+}
   .h1 {
     font-size: 1.5rem;
     margin-top: 50px;
@@ -195,10 +232,23 @@ body.dark {
     margin-left: 0px;
   }
 }
+@media (max-width: 900px) {
+  .country-details {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 50px;
+    margin-left: 50px;
+    gap: 16px;
+   }
+   .Border-area{
+    width: 500px;
+   }
+}
+
 @media (max-width: 890px) {
   .country-details img {
-    width: 330px;
-    height: 256px;
+    width: 430px;
+    height: 280px;
   }
   .country-details {
     gap: 20px;
@@ -274,6 +324,16 @@ body.dark {
 
 @media (max-width: 580px) {
   .country-details img {
+    width: 400px;
+    height: 250px;
+  }
+  .country-details-container {
+    margin-left: 30px;
+    margin-right: 15px;
+  }
+}
+@media (max-width: 440px) {
+  .country-details img {
     width: 350px;
     height: 250px;
   }
@@ -288,7 +348,23 @@ body.dark {
   }
   .country-details img {
     width: 300px;
-    height: 200px
+    height: 240px;
+  }
+  .Border-area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 335px) {
+  .Header {
+    padding-inline: 0px;
+  }
+  .country-details img {
+    width: 270px;
+    height: 230px;
   }
   .Border-area {
     display: flex;

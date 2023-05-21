@@ -57,6 +57,7 @@ a {
   left: 0;
   right: 0;
   top: 0;
+  z-index: 100;
 }
 
 .header-content {
@@ -109,11 +110,14 @@ a {
 .card:hover {
   transform: scale(1.03);
   box-shadow: 0 0 16px 0px rgba(0, 0, 0, 0.2);
+  
+ 
 }
 
 .card-title {
   font-size: 16px;
-  margin-block: 16px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   padding-left: 10px;
   font-weight: 800; /* Increase the font weight for the h3 element */
 }
@@ -122,8 +126,11 @@ a {
   padding-inline: 16px;
 }
 
+
 .cardBody p {
+ 
   padding-left: 10px;
+  line-height: 10px;
   font-weight: 300;
 }
 
@@ -194,6 +201,47 @@ option {
   margin-left: 30px;
   margin-top: 15px;
   color: var(--mgColor);
+}
+
+@media (max-width: 2150px) {
+  #card-container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+  }
+  .card {
+    width: 450px;
+    height: 470px;
+  }
+  .card img{
+    height: 270px;
+  }
+}
+@media (max-width: 2050px) {
+  #card-container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+  }
+  .card {
+    width: 430px;
+    height: 440px;
+  }
+  .card img{
+    height: 220px;
+  }
+}
+
+@media (max-width: 2000px) {
+  #card-container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+  }
+  .card {
+    width: 410px;
+    height: 410px;
+  }
+  .card img{
+    height: 200px;
+  }
 }
 
 
@@ -329,7 +377,12 @@ option {
   }
   .card {
     width: 260px;
+    height: 390px;
   }
+  .card img{
+    height: 200px;
+  }
+
 }
 
 @media (max-width: 1280px) {
@@ -497,6 +550,12 @@ option {
 @media (max-width: 398px) {
   .filter-by-region {
     width: 70%;
+  }
+  .card-title {
+  
+    margin-top: 20px;
+    margin-bottom: 20px;
+   
   }
   .card {
     width: 260px;
