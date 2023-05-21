@@ -23,9 +23,8 @@ const hideLoader = () => {
 };
 
 const showCardDetail = async () => {
-  showLoader();
-  //  setTimeout(async () => {
   try {
+    showLoader();
     const response = await fetch(`${API}/name/${countryName}?fullText=true`);
     // const done = await new Promise((res) => setTimeout(res, 1000)); // wait
     const [country] = await response.json();
@@ -84,10 +83,10 @@ const showCardDetail = async () => {
     } else {
       borderCountries.innerHTML = `<p class="no-border">No Border Countries</p>`;
     }
+    hideLoader();
   } catch (error) {
     console.log(error);
   }
-  hideLoader();
 };
 //   }, 1000);
 // };
