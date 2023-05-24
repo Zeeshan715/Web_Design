@@ -159,13 +159,7 @@ a {
   background-color: var(--elements-color);
   color: var(--text-color);
 }
-.Search_bar {
-  position: relative;
-}
 
-.search__input {
-  width: 200px; /* Set the initial width of the search bar */
-}
 .Search_bar input {
   border: none;
   width: 100%;
@@ -176,7 +170,6 @@ a {
 .Search_bar input::placeholder {
   color: var(--text-color);
 }
-
 
 /*the container must be positioned relative:*/
 .custom-select {
@@ -256,14 +249,17 @@ a {
     gap: 5rem;
   }
   .card {
-    width: 417px;
-    height: 450px;
-  }
-  .card img {
-    height: 270px;
+    width: 430px;
+    height: 430px;
   }
   .card img {
     height: 250px;
+  }
+  .custom-select{
+    width: 280px;
+  }
+  .select-items{
+    line-height: 1.5;
   }
 }
 @media (max-width: 2080px) {
@@ -272,7 +268,7 @@ a {
     gap: 4rem;
   }
   .card {
-    width: 406px;
+    width: 420px;
     height: 396px;
   }
   .card img {
@@ -282,7 +278,7 @@ a {
 
 @media (max-width: 2020px) {
   .card {
-    width: 390px;
+    width: 410px;
     height: 380px;
   }
   .card img {
@@ -301,25 +297,27 @@ a {
 }
 
 @media (max-width: 1880px) {
-  
-  .custom-select{
+  .custom-select {
     width: 250px;
   }
   .card {
-    width: 375px;
+    width: 380px;
     height: 410px;
   }
   .card img {
     height: 220px;
   }
-  .select-items{
+  .select-items {
     line-height: 1;
+  }
+  .Search_bar {
+    max-width: 600px;
   }
 }
 
 @media (max-width: 1820px) {
   .card {
-    width: 362px;
+    width: 352px;
     height: 430px;
   }
   .card img {
@@ -329,20 +327,20 @@ a {
 
 @media (max-width: 1740px) {
   .card {
-    width: 350px;
+    width: 340px;
     height: 360px;
   }
   .card img {
     height: 180px;
   }
-  .custom-select{
+  .custom-select {
     width: 240px;
   }
 }
 
 @media (max-width: 1680px) {
   .card {
-    width: 335px;
+    width: 325px;
     height: 350px;
   }
 }
@@ -350,6 +348,9 @@ a {
   .card {
     width: 315px;
     height: 350px;
+  }
+  .Search_bar{
+    max-width: 500px;
   }
 }
 @media (max-width: 1580px) {
@@ -359,7 +360,7 @@ a {
 }
 @media (max-width: 1530px) {
   .card {
-    width: 300px;
+    width: 292px;
   }
 }
 @media (max-width: 1480px) {
@@ -381,6 +382,12 @@ a {
 @media (max-width: 1330px) {
   .card {
     width: 247px;
+  }
+  .custom-select {
+    width: 160px;
+  }
+  .Search_bar{
+    max-width: 400px;
   }
 }
 
@@ -414,7 +421,7 @@ a {
     gap: 5rem;
   }
   .card {
-    width: 270px;
+    width: 280px;
   }
 }
 
@@ -453,7 +460,7 @@ a {
   .card {
     width: 300px;
   }
-  .custom-select{
+  .custom-select {
     width: 200px;
   }
 }
@@ -461,7 +468,7 @@ a {
 @media (max-width: 780px) {
   .custom-select {
     width: 200px;
-}
+  }
   .search-filter-container {
     padding: 0px 2.1rem;
   }
@@ -568,10 +575,10 @@ a {
   .filter-by-region {
     width: 50%;
   }
-  .custom-select{
+  .custom-select {
     margin-top: 30px;
   }
-  .select-items{
+  .select-items {
     line-height: 0.7;
   }
 }

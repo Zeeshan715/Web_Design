@@ -12,19 +12,9 @@ const fetchApiData = async (url) => {
   return data;
 };
 
-const showLoader = () => {
-  const loader = document.querySelector(".loader");
-  loader.style.display = "block";
-};
-
-const hideLoader = () => {
-  const loader = document.querySelector(".loader");
-  loader.style.display = "none";
-};
 // This function fetches detailed information about a country from an API and updates the HTML elements on the country detail page accordingly
 const showCardDetail = async () => {
   try {
-    showLoader(); // Show a loader or loading state indicator while fetching and updating data
 
     // Fetch detailed information about the country
     const response = await fetch(`${API}/name/${countryName}?fullText=true`);
@@ -97,14 +87,12 @@ const showCardDetail = async () => {
       for (const border of countries) {
         const borderCountryTag = document.createElement("a");
         borderCountryTag.innerText = border;
-        borderCountryTag.href = `detail_page.html?name=${border}`;
+        borderCountryTag.href = `../Details/detail_page.html?name=${border}`;
         borderCountries.append(borderCountryTag);
       }
     } else {
       borderCountries.innerHTML = `<p class="no-border">No Border Countries</p>`;
     }
-
-    hideLoader(); // Hide the loader or loading state indicator after data has been fetched and updated
   } catch (error) {
     console.log(error); // Log any errors that occur during the fetch and update process
   }
