@@ -82,7 +82,7 @@ a {
 #card-container {
   display: grid;
   grid-template-columns: repeat(4, auto);
-  gap: 3rem;
+  gap: 4rem;
   width: 100%;
   place-content: space-between;
   margin-bottom: 50px;
@@ -110,8 +110,6 @@ a {
 .card:hover {
   transform: scale(1.03);
   box-shadow: 0 0 16px 0px rgba(0, 0, 0, 0.2);
-  
- 
 }
 
 .card-title {
@@ -126,9 +124,7 @@ a {
   padding-inline: 16px;
 }
 
-
 .cardBody p {
- 
   padding-left: 10px;
   line-height: 10px;
   font-weight: 300;
@@ -163,7 +159,13 @@ a {
   background-color: var(--elements-color);
   color: var(--text-color);
 }
+.Search_bar {
+  position: relative;
+}
 
+.search__input {
+  width: 200px; /* Set the initial width of the search bar */
+}
 .Search_bar input {
   border: none;
   width: 100%;
@@ -174,26 +176,71 @@ a {
 .Search_bar input::placeholder {
   color: var(--text-color);
 }
-.filter-by-region {
-  width: 100%;
-  height: 47px;
-  margin: 3px;
-  border-radius: 0.25em;
-  border: none;
-  padding: 15px;
-  cursor: pointer;
-  background-color: var(--elements-color);
-  color: var(--text-color);
-  outline: none;
-  box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.15);
-  border-right: 12px solid var(--elements-color);
-}
-.filter-by-region option {
-  font-size: 16px;
+
+
+/*the container must be positioned relative:*/
+.custom-select {
+  width: 180px;
+  position: relative;
+  font-size: 14px;
+  margin-top: 4px;
 }
 
-option {
-  margin-top: 10px;
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+  box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.15);
+}
+
+.select-selected {
+  background-color: var(--elements-color);
+  box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 20px;
+  right: 10px;
+  border: 6px solid transparent;
+  border-color: #0f0d0d transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #080808 transparent;
+  top: 14px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,
+.select-selected {
+  padding: 13px 17px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  line-height: 0.5;
+  background-color: var(--elements-color);
+  border-radius: 4px;
+  top: 115%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover,
+.same-as-selected {
+  background-color: var(--elements-color);
 }
 
 #magnify {
@@ -206,239 +253,189 @@ option {
 @media (max-width: 2150px) {
   #card-container {
     grid-template-columns: repeat(4, 1fr);
-    gap: 3rem;
+    gap: 5rem;
   }
   .card {
-    width: 450px;
-    height: 470px;
+    width: 417px;
+    height: 450px;
   }
-  .card img{
+  .card img {
     height: 270px;
   }
+  .card img {
+    height: 250px;
+  }
 }
-@media (max-width: 2050px) {
+@media (max-width: 2080px) {
   #card-container {
     grid-template-columns: repeat(4, 1fr);
-    gap: 3rem;
+    gap: 4rem;
   }
   .card {
-    width: 430px;
-    height: 440px;
+    width: 406px;
+    height: 396px;
   }
-  .card img{
+  .card img {
     height: 220px;
   }
 }
 
-@media (max-width: 2000px) {
-  #card-container {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 3rem;
-  }
+@media (max-width: 2020px) {
   .card {
-    width: 410px;
-    height: 410px;
+    width: 390px;
+    height: 380px;
   }
-  .card img{
+  .card img {
     height: 200px;
   }
 }
 
-
-@media (max-width: 1870px) {
-  #card-container {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 3rem;
-  }
+@media (max-width: 1980px) {
   .card {
-    width: 400px;
-    height: 470px;
+    width: 393px;
+    height: 377px;
   }
-  .card img{
-    height: 280px;
+  .card img {
+    height: 200px;
   }
 }
 
-
-@media (max-width: 1830px) {
-  #card-container {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 3rem;
+@media (max-width: 1880px) {
+  
+  .custom-select{
+    width: 250px;
   }
   .card {
-    width: 385px;
+    width: 375px;
+    height: 410px;
+  }
+  .card img {
+    height: 220px;
+  }
+  .select-items{
+    line-height: 1;
+  }
+}
+
+@media (max-width: 1820px) {
+  .card {
+    width: 362px;
     height: 430px;
   }
-  .card img{
-    height: 250px;
-  }
-}
-
-
-@media (max-width: 1800px) {
-  #card-container {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 3rem;
-  }
-  .card {
-    width: 360px;
-    height: 420px;
-  }
-  .card img{
+  .card img {
     height: 230px;
   }
 }
 
-@media (max-width: 1700px) {
-  #card-container {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 3rem;
-  }
+@media (max-width: 1740px) {
   .card {
     width: 350px;
-    height: 420px;
+    height: 360px;
   }
-  .card img{
-    height: 230px;
+  .card img {
+    height: 180px;
   }
-}
-@media (max-width: 1700px) {
-  #card-container {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 3rem;
-  }
-  .card {
-    width: 330px;
-    height: 420px;
-  }
-  .card img{
-    height: 230px;
+  .custom-select{
+    width: 240px;
   }
 }
 
-@media (max-width: 1560px) {
-  #card-container {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 3rem;
-  }
+@media (max-width: 1680px) {
   .card {
-    width: 320px;
-    height: 420px;
-  }
-  .card img{
-    height: 230px;
+    width: 335px;
+    height: 350px;
   }
 }
-
-@media (max-width: 1520px) {
-  #card-container {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 3rem;
+@media (max-width: 1620px) {
+  .card {
+    width: 315px;
+    height: 350px;
   }
+}
+@media (max-width: 1580px) {
+  .card {
+    width: 310px;
+  }
+}
+@media (max-width: 1530px) {
   .card {
     width: 300px;
   }
-  
 }
-
-@media (max-width: 1510px) {
-  #card-container {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 3rem;
-  }
-  .card {
-    width: 270px;
-    height: 420px;
-  }
-  
-}
-
-@media (max-width: 1570px) {
-  #card-container {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 3rem;
-  }
-  .card {
-    width: 310px;  
-  }
-}
-
-@media (max-width: 1470px) {
-  #card-container {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 3rem;
-  }
+@media (max-width: 1480px) {
   .card {
     width: 280px;
   }
-  
 }
 
 @media (max-width: 1415px) {
-  #card-container {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 3rem;
-  }
   .card {
-    width: 280px;  
+    width: 270px;
+  }
+}
+@media (max-width: 1380px) {
+  .card {
+    width: 255px;
+  }
+}
+@media (max-width: 1330px) {
+  .card {
+    width: 247px;
   }
 }
 
-@media (max-width: 1415px) {
-  #card-container {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 3rem;
-  }
-  .card {
-    width: 270px;  
-  }
-}
-@media (max-width: 1320px) {
-  #card-container {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 3rem;
-  }
-  .card {
-    width: 252px;
-    height: 370px;
-  }
-  .card img{
-    height: 170px;
-  }
-
-}
-
-@media (max-width: 1280px) {
+@media (max-width: 1290px) {
   #card-container {
     grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
+    gap: 5rem;
   }
   .card {
     width: 330px;
+    height: 370px;
   }
 }
 
-@media (max-width: 1190px) {
+@media (max-width: 1260px) {
+  .card {
+    width: 320px;
+    height: 370px;
+  }
+}
+@media (max-width: 1230px) {
+  .card {
+    width: 310px;
+    height: 370px;
+  }
+}
+
+@media (max-width: 1200px) {
   #card-container {
     grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
+    gap: 5rem;
   }
   .card {
-    width: 300px;
+    width: 270px;
+  }
+}
+
+@media (max-width: 1130px) {
+  .card {
+    width: 260px;
+    height: 350px;
   }
 }
 
 @media (max-width: 1080px) {
   #card-container {
     grid-template-columns: repeat(2, 1fr);
-    gap: 4rem;
+    gap: 5rem;
   }
   .card {
-    width: 330px;
+    width: 300px;
   }
 }
 
-@media (max-width: 998px) {
+@media (max-width: 1000px) {
   .title {
     font-size: 16px;
   }
@@ -456,9 +453,15 @@ option {
   .card {
     width: 300px;
   }
+  .custom-select{
+    width: 200px;
+  }
 }
 
-@media (max-width: 778px) {
+@media (max-width: 780px) {
+  .custom-select {
+    width: 200px;
+}
   .search-filter-container {
     padding: 0px 2.1rem;
   }
@@ -467,7 +470,7 @@ option {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 770px) {
   .title {
     font-size: 12px;
   }
@@ -484,7 +487,7 @@ option {
   }
 
   .Search_bar {
-    width: 60%;
+    width: 50%;
   }
 
   .header-content h2 {
@@ -492,10 +495,6 @@ option {
   }
   .container-card {
     padding: 0 2.1rem;
-  }
-  #card-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
   }
 
   .search-filter-container {
@@ -569,19 +568,37 @@ option {
   .filter-by-region {
     width: 50%;
   }
+  .custom-select{
+    margin-top: 30px;
+  }
+  .select-items{
+    line-height: 0.7;
+  }
 }
 @media (max-width: 398px) {
   .filter-by-region {
     width: 70%;
   }
   .card-title {
-  
     margin-top: 20px;
     margin-bottom: 20px;
-   
   }
   .card {
     width: 260px;
     height: 370px;
+  }
+}
+
+@media (max-width: 320px) {
+  .filter-by-region {
+    width: 70%;
+  }
+  .card-title {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .card {
+    width: 230px;
+    height: 380px;
   }
 }

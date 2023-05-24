@@ -2,12 +2,13 @@ const countryName = new URLSearchParams(location.search).get("name");
 const borderCountries = document.querySelector(".border-countries");
 const themeChanger = document.querySelector(".theme-changer");
 const body = document.body;
-const API = `https://restcountries.com/v3.1/all`;
+const API = `https://restcountries.com/v3.1`;
 
 // Fetch the API
 const fetchApiData = async (url) => {
   const response = await fetch(url);
   const data = await response.json();
+  console.log(data);
   return data;
 };
 
@@ -111,14 +112,13 @@ const showCardDetail = async () => {
 
 const themeGetter = () => {
   const savedTheme = localStorage.getItem("theme") || "light";
-  
+
   // Check if the saved theme is "dark" and apply corresponding styles and button text
   if (savedTheme === "dark") {
     body.classList.add("dark");
     themeChanger.innerHTML = '<i class="fa-solid fa-moon"></i>Light Mode';
   }
 };
-
 
 const toggleTheme = () => {
   body.classList.toggle("dark");
