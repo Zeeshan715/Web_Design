@@ -13,7 +13,6 @@ const fetchApiData = async (url) => {
 };
 // This function renders country cards based on the provided data
 const renderCards = (Cuntry_data) => {
-
   const cardContainer = document.querySelector("#card-container");
   cardContainer.innerHTML = "";
 
@@ -42,7 +41,6 @@ const fetchAllCountries = async () => {
 };
 
 const searchCountries = (searchString) => {
-
   const filteredCountries = allCountries.filter((item) => {
     const name = item.name.common.toLowerCase();
     return name.includes(searchString.toLowerCase());
@@ -61,7 +59,6 @@ const themeChanger = document.querySelector(".theme-changer");
 
 // This function toggles the theme between light and dark modes
 const toggleTheme = () => {
-  
   document.body.classList.toggle("dark");
   const isDarkMode = document.body.classList.contains("dark");
   localStorage.setItem("theme", isDarkMode ? "dark" : "light");
@@ -70,7 +67,6 @@ const toggleTheme = () => {
     ${isDarkMode ? "Light" : "Dark"} Mode
   `;
 };
-
 
 const themeChangerInit = () => {
   const savedTheme = localStorage.getItem("theme") || "light";
@@ -81,7 +77,6 @@ const themeChangerInit = () => {
   `;
   themeChanger.addEventListener("click", toggleTheme);
 };
-
 
 // Function to create custom select elements
 const createCustomSelects = () => {
@@ -138,12 +133,10 @@ const createCustomSelects = () => {
 const closeAllSelect = (elmnt) => {
   const customSelects = document.getElementsByClassName("custom-select");
   for (let i = 0; i < customSelects.length; i++) {
-    const optionListDiv = customSelects[i].getElementsByClassName(
-      "select-items"
-    )[0];
-    const selectedItemDiv = customSelects[i].getElementsByClassName(
-      "select-selected"
-    )[0];
+    const optionListDiv =
+      customSelects[i].getElementsByClassName("select-items")[0];
+    const selectedItemDiv =
+      customSelects[i].getElementsByClassName("select-selected")[0];
 
     if (elmnt !== selectedItemDiv) {
       optionListDiv.classList.add("select-hide");
@@ -158,9 +151,11 @@ const filterCountriesByRegion = async (region) => {
     renderCards(allCountries);
   } else {
     try {
-      const response = await fetch(`https://restcountries.com/v3.1/region/${region}`);
+      const response = await fetch(
+        `https://restcountries.com/v3.1/region/${region}`
+      );
       const Cuntry_data = await response.json();
-      
+
       if (response.ok) {
         renderCards(Cuntry_data);
       } else {
@@ -172,23 +167,29 @@ const filterCountriesByRegion = async (region) => {
   }
 };
 
+// const init = async () => {
+//   await fetchAllCountries();
+//   createCustomSelects();
+
+//   const searchInput = document.querySelector(".Search_bar input");
+//   searchInput.addEventListener("input", (e) => {
+//     searchCountries(e.target.value);
+//   });
+
+//   window.addEventListener("pageshow", resetSearchInputValue);
+//   themeChangerInit();
+// };
+
+// init();
+fetchAllCountries();
+createCustomSelects();
+
+const searchInput = document.querySelector(".Search_bar input");
+searchInput.addEventListener("input", (e) => {
+  searchCountries(e.target.value);
+});
+
+window.addEventListener("pageshow", resetSearchInputValue);
+themeChangerInit();
 
 // Update init function to call createCustomSelects
-const init = async () => {
-  await fetchAllCountries();
-  createCustomSelects();
-
-  const searchInput = document.querySelector(".Search_bar input");
-  searchInput.addEventListener("input", (e) => {
-    searchCountries(e.target.value);
-  });
-
-  window.addEventListener("pageshow", resetSearchInputValue);
-  themeChangerInit();
-};
-
-init();
-
-
-
-
